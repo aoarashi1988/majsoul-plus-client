@@ -26,14 +26,19 @@
 
 - 除首次加载较慢，其余均可高速加载
 - 可使用如OBS等视频采集软件采集画面
-- Windows、Mac OS、Linux，桌面端跨平台
+- Windows、macOS、Linux，桌面端跨平台
 - 支持替换游戏静态资源以及对游戏注入代码
 
 ## 使用
-
+### 手动下载安装
 1. 访问 <a href="https://github.com/iamapig120/majsoul-plus-client/releases/latest">releases 页面</a> 下载最新版本
 2. 解压
 3. 运行
+### 使用 Homebrew 安装 （仅限于 macOS 用户）
+在终端运行指令：
+```
+brew cask install majsoul-plus
+```
 
 在客户端中玩的开心！
 
@@ -142,7 +147,4 @@
 
 ## 贡献者
 
-[<img src="https://avatars0.githubusercontent.com/u/16359124?s=64" width="64" height="64" alt="Handle"/>](https://github.com/iamapig120)
-[<img src="https://avatars0.githubusercontent.com/u/30466105?s=64" width="64" height="64" alt="aoarashi1988"/>](https://github.com/aoarashi1988)
-[<img src="https://avatars0.githubusercontent.com/u/36305150?s=64" width="64" height="64" alt="UnrealShadow"/>](https://github.com/hyunrealshadow)
-[<img src="https://avatars3.githubusercontent.com/u/8806796?s=64" width="64" height="64" alt="molingyu"/>](https://github.com/molingyu)
+[![contributors](https://opencollective.com/majsoul-plus-client/contributors.svg?width=890&button=false)](https://github.com/MajsoulPlus/majsoul-plus-client/graphs/contributors)
