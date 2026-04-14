@@ -50,7 +50,7 @@ export const GlobalPath: MajsoulPlus.GlobalPath = {
 }
 
 export const RemoteDomains = [
-  { id: 0, name: 'zh', domain: 'https://game.maj-soul.com/1' },
+  { id: 0, name: 'zh', domain: 'https://game.maj-soul.net/1' },
   { id: 1, name: 'jp', domain: 'https://game.mahjongsoul.com' },
   { id: 2, name: 'en', domain: 'https://mahjongsoul.game.yo-star.com' }
 ]
@@ -83,7 +83,7 @@ export const Global: MajsoulPlus.Global = {
     webPreferences: {
       nodeIntegration: true,
       webviewTag: true,
-	  enableRemoteModule: true,
+      enableRemoteModule: true,
       contextIsolation: false,
     }
   },
@@ -96,7 +96,7 @@ export const Global: MajsoulPlus.Global = {
     webPreferences: {
       webSecurity: false,
       nodeIntegration: true,
-	  enableRemoteModule: true,
+      enableRemoteModule: true,
       contextIsolation: false,
     },
     title: '雀魂Plus',
@@ -114,7 +114,7 @@ export const Global: MajsoulPlus.Global = {
     webPreferences: {
       webSecurity: false,
       allowRunningInsecureContent: true,
-	  enableRemoteModule: true,
+      enableRemoteModule: true,
       contextIsolation: false,
     },
     autoHideMenuBar: true,
@@ -123,9 +123,9 @@ export const Global: MajsoulPlus.Global = {
     fullscreenable: false,
     useContentSize: true
   },
-  HttpGetUserAgent: `Mozilla/5.0 (${os.type()} ${os.release()}; ${os.arch()}) MajsoulPlus/${app.getVersion()} Chrome/${
-    process.versions.chrome
-  }`
+  // 伪装为普通 Chrome 浏览器，避免被检测为 MajsoulPlus
+  HttpGetUserAgent:
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36'
 }
 
 export function InitGlobal() {

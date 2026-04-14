@@ -19,7 +19,6 @@ const defaultExtension: MajsoulPlus.Extension = {
   description: '无描述',
   preview: 'preview.png',
   dependencies: {},
-
   entry: 'script.js',
   loadBeforeGame: false,
   applyServer: [0, 1, 2],

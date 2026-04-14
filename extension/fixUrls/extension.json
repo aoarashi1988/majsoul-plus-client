@@ -1,0 +1,10 @@
+{
+  "applyServer": [0],
+  "author": "aoarashi1988",
+  "description": "解决MajPlus服务器连接不可用",
+  "entry": "index.js",
+  "id": "fixUrls",
+  "name": "服务器资源替换",
+  "preview": "preview.png",
+  "version": "2.1.1"
+}

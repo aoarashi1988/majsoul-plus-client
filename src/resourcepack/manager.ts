@@ -21,7 +21,6 @@ const defaultResourcePack: MajsoulPlus.ResourcePack = {
   description: 'No description provided.',
   preview: 'preview.png',
   dependencies: {},
-
   replace: []
 }
 
@@ -86,7 +85,7 @@ export default class ResourcePackManager extends BaseManager {
     pack.replace.forEach((rep, index) => {
       if (typeof rep === 'string') {
         pack.replace[index] = {
-          from: [rep, 'jp/' + rep, 'en/' + rep, 'chs_t/'+ rep],
+          from: [rep, 'jp/' + rep, 'en/' + rep, 'chs_t/' + rep],
           to: rep,
           'all-servers': true,
           replace: false
@@ -225,12 +224,12 @@ export default class ResourcePackManager extends BaseManager {
       } else {
         ctx.res.statusCode = remote.code
         const resMap: MajsoulPlus.ResourceMap = JSON.parse(
-            remote.data.toString('utf-8')
-          )
+          remote.data.toString('utf-8')
+        )
 
-          // 先加载扩展的资源
-          // 后加载资源包的资源，资源包可覆盖扩展的替换
-          // 资源包的资源替换顺序即为加载顺序
+        // 先加载扩展的资源
+        // 后加载资源包的资源，资源包可覆盖扩展的替换
+        // 资源包的资源替换顺序即为加载顺序
         ;[
           { list: this.loadedExtensions, name: 'extension' },
           { list: this.loadedDetails, name: 'resourcepack' }
@@ -254,16 +253,12 @@ export default class ResourcePackManager extends BaseManager {
                       if (rep.replace) {
                         const to = resMap.res[rep.to]
                         if (to !== undefined) {
-                          resMap.res[
-                            from
-                          ].prefix = `majsoul_plus/replace/${Buffer.from(
+                          resMap.res[from].prefix = `majsoul_plus/replace/${Buffer.from(
                             to.prefix + '/' + rep.to
                           ).toString('base64')}`
                         }
                       } else {
-                        resMap.res[
-                          from
-                        ].prefix = `majsoul_plus/${item.name}/${pack.id}`
+                        resMap.res[from].prefix = `majsoul_plus/${item.name}/${pack.id}`
                       }
                     })
                   }

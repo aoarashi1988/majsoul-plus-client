@@ -58,9 +58,8 @@ export function ListenServer(port: number) {
   // 初始化本地镜像服务器，当端口被占用时会随机占用另一个端口
   if (UserConfigs.userData.useHttpServer) {
     httpServer.listen(port)
-    httpServer.on('error', err => {
-      // TODO: 验证 http 端口冲突时的提示信息是否是下面的内容
-      if (err.name === 'EADDRINUSE') {
+    httpServer.on('error', (err: NodeJS.ErrnoException) => {
+      if (err.code === 'EADDRINUSE') {
         httpServer.close()
         // 随机监听一个空闲端口
         httpServer.listen(0)
@@ -68,9 +67,8 @@ export function ListenServer(port: number) {
     })
   } else {
     httpsServer.listen(port)
-    httpsServer.on('error', err => {
-	  let error: any = err;
-      if (error.code === 'EADDRINUSE') {
+    httpsServer.on('error', (err: NodeJS.ErrnoException) => {
+      if (err.code === 'EADDRINUSE') {
         httpsServer.close()
         // 随机监听一个空闲端口
         httpsServer.listen(0)

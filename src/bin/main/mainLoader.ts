@@ -6,7 +6,7 @@ import { MajsoulPlus } from '../../majsoul_plus'
 const userConfigs: MajsoulPlus.UserConfig = require(Global.UserConfigPath)
 
 const remoteDomains = [
-  { id: 0, name: 'zh', domain: 'https://game.maj-soul.com/1' },
+  { id: 0, name: 'zh', domain: 'https://game.maj-soul.net/1' },
   { id: 1, name: 'jp', domain: 'https://game.mahjongsoul.com/' },
   { id: 2, name: 'en', domain: 'https://mahjongsoul.game.yo-star.com/' }
 ]
@@ -140,6 +140,8 @@ mainWindow.addEventListener('dom-ready', () => {
   } else {
     scaleWindow(100)
   }
+
+  mainWindow.useragent = navigator.userAgent
 })
 
 ipcRenderer.on(
@@ -151,8 +153,6 @@ ipcRenderer.on(
     if (partition) {
       mainWindow.partition = partition
     }
-
-    mainWindow.useragent = navigator.userAgent
     mainWindow.src = url
     mainWindowBox.style.width = '100vw'
     mainWindowBox.style.height = '100vh'
